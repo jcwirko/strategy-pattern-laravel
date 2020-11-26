@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Values\PurchaseOrderStatesValues;
 use Illuminate\Http\Request;
 
 class PurchaseOrderController extends Controller
@@ -10,26 +11,11 @@ class PurchaseOrderController extends Controller
     {
         $state = $request->input('state');
 
-        if($state == 'in_transit') {
-            return ['cancelled'];
-        }
+        $strategy = PurchaseOrderStatesValues::STRATEGY[$state];
 
-        if($state == 'at_destination') {
-            return ['cancelled'];
-        }
-
-        if($state == 'certified') {
-            return ['cancelled', 'billed', 'payed'];
-        }
-
-        if($state == 'billed') {
-            return ['certified', 'payed'];
-        }
-
-        if($state == 'payed') {
-            return ['certified', 'billed'];
-        }
+        $strategy->getFollowingStates();
 
         return [];
     }
 }
+

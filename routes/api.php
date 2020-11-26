@@ -3,4 +3,4 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::post('getFollowingStates', 'PurchaseOrderController@getFollowingStates');
+Route::get('get-following-states', 'PurchaseOrderController@getFollowingStates');
