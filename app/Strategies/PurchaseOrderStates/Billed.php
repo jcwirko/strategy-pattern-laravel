@@ -6,7 +6,7 @@ use App\Strategies\PurchaseOrderStatesInterface;
 
 class Billed implements PurchaseOrderStatesInterface
 {
-    public function getFollowingStates(string $state)
+    public function getFollowingStates()
     {
         return ['certified', 'payed'];
     }

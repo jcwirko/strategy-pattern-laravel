@@ -6,7 +6,7 @@ use App\Strategies\PurchaseOrderStatesInterface;
 
 class AtDestination implements PurchaseOrderStatesInterface
 {
-    public function getFollowingStates(string $state)
+    public function getFollowingStates()
     {
         return ['cancelled', 'certified'];
     }

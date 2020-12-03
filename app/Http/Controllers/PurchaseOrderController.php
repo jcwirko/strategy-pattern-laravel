@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Values\PurchaseOrderStatesValues;
+use App\Values\PurchaseOrderStatusValues;
 use Illuminate\Http\Request;
 
 class PurchaseOrderController extends Controller
@@ -11,11 +11,9 @@ class PurchaseOrderController extends Controller
     {
         $state = $request->input('state');
 
-        $strategy = PurchaseOrderStatesValues::STRATEGY[$state];
-
-        $strategy->getFollowingStates();
-
-        return [];
+        $strategyClass = PurchaseOrderStatusValues::STRATEGY[$state];
+        
+        return (new $strategyClass)->getFollowingStates();
     }
 }
 
