@@ -1,0 +1,53 @@
+{
+	"info": {
+		"_postman_id": "7d51f9c6-91d3-43c4-a62b-fb258dda5e49",
+		"name": "strategy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "states",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "pago",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "asd",
+							"value": "aaa",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/get-following-states?state=in_transit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get-following-states"
+					],
+					"query": [
+						{
+							"key": "state",
+							"value": "in_transit"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
